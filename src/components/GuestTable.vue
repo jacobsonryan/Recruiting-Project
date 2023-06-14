@@ -113,9 +113,6 @@ computed: {
     editGuest(index) {
       this.editedGuest = { ...this.guests[index] };
       this.showModal = true;
-    },
-
-    startEdit(index) {
       this.editingIndex = index;
     },
 
@@ -126,7 +123,7 @@ computed: {
 
       if (totalTickets > this.maxTickets) {
         alert(`The maximum number of tickets (${this.maxTickets}) has been reached.`);
-        return; // Don't save edit if ticket limit is exceeded
+        return;
       }
 
       this.guests.splice(editedGuestIndex, 1, editedGuest);
