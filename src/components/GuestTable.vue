@@ -29,19 +29,19 @@
       </tbody>
     </table>
     <div v-show="showModal"  class="absolute top-0 left-0 w-full h-full flex justify-center bg-black bg-opacity-70 place-items-center backdrop-blur-xl">
-      <div class="bg-gray-800 text-white p-9 rounded-lg">
+      <div class="bg-black border border-[1px] border-white border-opacity-50 text-white p-9 rounded-xl">
         <h2>Edit Guest</h2>
         <div class="flex flex-col gap-3">
           <label for="editEmail">Tickets:</label>
-          <input class="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="email" id="editEmail" v-model.number="editedGuest.email" required>
+          <input class="bg-black border border-white border-opacity-50 outline-none text-white text-sm rounded-lg w-full p-2.5" type="email" id="editEmail" v-model.number="editedGuest.email" required>
         </div>
         <div class="flex flex-col gap-3">
           <label for="editTickets">Tickets:</label>
-          <input class="bg-gray-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="number" id="editTickets" v-model.number="editedGuest.tickets" required>
+          <input class="bg-black border border-white border-opacity-50 outline-none text-white text-sm rounded-lg w-full p-2.5" type="number" id="editTickets" v-model.number="editedGuest.tickets" required>
         </div>
         <div class="flex gap-2 float-right pt-6">
-          <button @click="cancelEdit">Cancel</button>
-          <button @click="saveEdit" class="bg-blue-600 rounded px-4 py-1 hover:bg-blue-700">Save</button>
+          <button @click="cancelEdit" class="text-xs">Cancel</button>
+          <button @click="saveEdit" class="w-min bg-white text-black text-xs rounded-lg px-5 py-2.5">Save</button>
         </div>
       </div>
     </div>
