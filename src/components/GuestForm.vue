@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center place-items-center my-9">
+  <div class="flex justify-center place-items-center my-32 flex-col">
     <form @submit.prevent="addGuest" class="flex flex-col gap-4">
       <div class="flex flex-col gap-3 text-white">
         <label for="email">Email</label>
@@ -11,16 +11,23 @@
       </div>
       <button type="submit" class="w-min bg-white text-black text-xs rounded-lg px-5 py-2.5">Submit</button>
     </form>
+    <Toast  :email="email" :class="{ 'fade-in': submitted, 'fade-out': !submitted }"></Toast>
   </div>
 </template>
 
 <script>
+import Toast from './Toast.vue'
+
 export default {
+  components: {
+    Toast
+  },
+  props: ['submitted', 'email'],
   data() {
     return {
       newGuest: {
         email: '',
-        tickets: null,
+        tickets: null
       },
     };
   },
@@ -34,3 +41,15 @@ export default {
 };
 </script>
 
+
+<style>
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.25s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.25s ease-out;
+}
+</style>

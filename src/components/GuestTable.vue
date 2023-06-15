@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GuestForm @add-guest="addGuest" />
+    <GuestForm @add-guest="addGuest" :submitted="this.submitted" :email="this.latestGuest" />
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 border border-opacity-40 border-white">
       <thead class="text-xs text-gray-400 uppercase bg-black dark:bg-gray-700 dark:text-gray-400 tracking-wider border-b border-opacity-20 border-white ">
         <tr>
@@ -63,6 +63,8 @@ export default {
       maxTickets: 20,
       showModal: false,
       editedGuest: { email: '', tickets: 0 },
+      submitted: false,
+      latestGuest: ''
     };
   },
 computed: {
@@ -100,6 +102,12 @@ computed: {
         alert(`The maximum number of tickets (${this.maxTickets}) has been reached.`);
         return; 
       }
+
+      this.submitted = true
+      this.latestGuest = guest.email
+      setTimeout(() => {
+        this.submitted = false
+      }, 1500)
 
       this.guests.push(guest);
 
